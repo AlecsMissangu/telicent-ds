@@ -46,6 +46,14 @@ export interface MiniSearchAutocompleteProps<Value extends AutocompleteOption = 
         key: any;
     }, option: Value) => React.ReactNode;
     /**
+     * Use this when the value is being controlled to address the bug below.
+     *
+     * Note: There is a bug with Material UI where if the value is being
+     * controlled and the 'Enter' button is clicked while freeSolo is set to true,
+     * the onChange callback will not be triggered.
+     */
+    onKeyDown?: React.KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+    /**
      * Callback fired when the search button is clicked
      *
      * `(event: React.MouseEvent<HTMLButtonElement>) => void;`
